@@ -22,9 +22,5 @@
       "src": "/(.*)",
       "dest": "/api/index.py"
     }
-  ],
-  "env": {
-    "MONGODB_URL": "@mongodb_url",
-    "DATABASE_NAME": "@database_name"
-  }
+
 }
