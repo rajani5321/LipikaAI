@@ -1,0 +1,17 @@
+Vikram Rao
+Junior Python Developer
+Email: vikram.rao@example.com | Phone: +91 9123456780
+Total Experience: 1.2 years
+Education: BCA
+
+SUMMARY:
+Motivated Junior Python Developer with 1.2 years in software engineering and production systems.
+
+TECHNICAL SKILLS:
+Python, Django, SQL, HTML, CSS, Git
+
+WORK EXPERIENCE:
+Assisted in building Django views, models, and SQL queries with Python.
+
+EDUCATION:
+BCA - First Class with Honors

@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="AI-Based HR Resume Screening and Candidate Matching System using FastAPI, Machine Learning, NLP, and MongoDB.">
+  <title> Lipika AI • AI-Based Resume Screening & Candidate Matching System</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+</head>
+
+<body>
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="app-sidebar">
+      <div class="sidebar-header">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2 2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zM4 14a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6zm3-4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v1H7v-1z" />
+          </svg>
+        </div>
+        <div class="logo-text">
+          <h1>LipikaAI ATS</h1>
+          <span>AI Resume Screener</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav" id="sidebar-nav">
+        <div class="nav-label">Core Modules</div>
+        <a class="nav-item active" data-view="dashboard" id="nav-dashboard">
+          <svg viewBox="0 0 24 24">
+            <path d="M3 3h7v9H3zm11 0h7v5h-7zm0 9h7v9h-7zM3 16h7v5H3z" />
+          </svg>
+          Dashboard
+        </a>
+        <a class="nav-item" data-view="jobs" id="nav-jobs">
+          <svg viewBox="0 0 24 24">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+          </svg>
+          Job Openings
+        </a>
+        <a class="nav-item" data-view="upload" id="nav-upload">
+          <svg viewBox="0 0 24 24">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="17 8 12 3 7 8" />
+            <line x1="12" y1="3" x2="12" y2="15" />
+          </svg>
+          Upload Resumes
+        </a>
+        <a class="nav-item" data-view="candidates" id="nav-candidates">
+          <svg viewBox="0 0 24 24">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+          </svg>
+          Candidate Pool
+        </a>
+
+        <div class="nav-label">AI & Analytics</div>
+        <a class="nav-item" data-view="matching" id="nav-matching">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <circle cx="12" cy="12" r="6" />
+            <circle cx="12" cy="12" r="2" />
+          </svg>
+          Candidate Matcher
+        </a>
+        <a class="nav-item" data-view="compare" id="nav-compare">
+          <svg viewBox="0 0 24 24">
+            <polyline points="16 3 21 3 21 8" />
+            <line x1="4" y1="20" x2="21" y2="3" />
+            <polyline points="21 16 21 21 16 21" />
+            <line x1="15" y1="15" x2="21" y2="21" />
+            <line x1="4" y1="4" x2="9" y2="9" />
+          </svg>
+          Side-by-Side Compare
+        </a>
+        <a class="nav-item" data-view="system" id="nav-system">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="3" />
+            <path
+              d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+          </svg>
+          System Architecture
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="db-status-badge" id="sidebar-db-status">
+          <div class="status-dot" id="db-status-dot"></div>
+          <span id="db-status-text">Database: Connecting...</span>
+        </div>
+        <div class="user-profile-badge">
+          <div class="user-avatar" id="user-avatar-initials">SJ</div>
+          <div class="user-meta">
+            <span class="user-name" id="user-name-display">Lipika Murmu</span>
+            <span class="user-role" id="user-role-display">Lead Technical Recruiter</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Mobile sidebar backdrop -->
+    <div class="sidebar-backdrop" id="sidebar-backdrop" onclick="closeMobileNav()"></div>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Top Navigation Header -->
+      <header class="top-header">
+        <div class="header-title-area">
+          <!-- Hamburger (visible on mobile only) -->
+          <button class="hamburger-btn" id="hamburger-btn" onclick="openMobileNav()" aria-label="Open navigation menu">
+            <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <h2 class="page-title" id="page-title">Dashboard Overview</h2>
+        </div>
+        <div class="header-actions">
+          <div class="job-selector-wrapper">
+            <span>Target Job:</span>
+            <select id="global-job-selector">
+              <option value="">Loading job openings...</option>
+            </select>
+          </div>
+          <button class="btn btn-secondary btn-sm" id="btn-reseed-data" title="Reset sample test data">
+            <svg viewBox="0 0 24 24">
+              <polyline points="1 4 1 10 7 10" />
+              <polyline points="23 20 23 14 17 14" />
+              <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15" />
+            </svg>
+            Reseed Data
+          </button>
+          <button class="btn btn-primary btn-sm" id="btn-quick-new-job">
+            <svg viewBox="0 0 24 24">
+              <line x1="12" y1="5" x2="12" y2="19" />
+              <line x1="5" y1="12" x2="19" y2="12" />
+            </svg>
+            New Vacancy
+          </button>
+          <button class="btn btn-secondary btn-sm" id="btn-logout" title="Sign out" onclick="logoutUser()" style="border-color: rgba(244,63,94,0.3); color: #fda4af;">
+            <svg viewBox="0 0 24 24">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+              <polyline points="16 17 21 12 16 7" />
+              <line x1="21" y1="12" x2="9" y2="12" />
+            </svg>
+            Logout
+          </button>
+        </div>
+      </header>
+
+      <!-- VIEW 1: DASHBOARD -->
+      <section class="page-view active" id="view-dashboard">
+        <!-- Top Metrics Cards -->
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-icon">
+              <svg viewBox="0 0 24 24">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+              </svg>
+            </div>
+            <div class="metric-data">
+              <h3 id="dash-active-jobs">0</h3>
+              <p>Active Vacancies</p>
+              <div class="metric-trend">⚡ Live Pipeline</div>
+            </div>
+          </div>
+
+          <div class="metric-card cyan">
+            <div class="metric-icon" style="color: #06b6d4; background: rgba(6, 182, 212, 0.12);">
+              <svg viewBox="0 0 24 24">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+                <line x1="16" y1="17" x2="8" y2="17" />
+                <polyline points="10 9 9 9 8 9" />
+              </svg>
+            </div>
+            <div class="metric-data">
+              <h3 id="dash-total-cvs">0</h3>
+              <p>Resumes Analyzed</p>
+              <div class="metric-trend" style="color: #06b6d4;">📄 PDF / DOCX / TXT</div>
+            </div>
+          </div>
+
+          <div class="metric-card emerald">
+            <div class="metric-icon" style="color: #10b981; background: rgba(16, 185, 129, 0.12);">
+              <svg viewBox="0 0 24 24">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+            </div>
+            <div class="metric-data">
+              <h3 id="dash-avg-score">0%</h3>
+              <p>Average Match Score</p>
+              <div class="metric-trend">▲ 14% vs baseline</div>
+            </div>
+          </div>
+
+          <div class="metric-card amber">
+            <div class="metric-icon" style="color: #f59e0b; background: rgba(245, 158, 11, 0.12);">
+              <svg viewBox="0 0 24 24">
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              </svg>
+            </div>
+            <div class="metric-data">
+              <h3 id="dash-high-match">0</h3>
+              <p>High-Match Candidates</p>
+              <div class="metric-trend" style="color: #f59e0b;">★ Score ≥ 65%</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Split Analytics: Visual Donut Chart + Distribution Bars & In-Demand Skills -->
+        <div class="analytics-grid">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 2a10 10 0 0 1 10 10" />
+                </svg>
+                Candidate Match Distribution
+              </h3>
+              <span class="badge-pill badge-good" id="dash-dist-sample-label">Active Vacancy</span>
+            </div>
+
+            <div class="dist-container">
+              <div class="donut-chart-wrapper" id="dist-donut-container">
+                <!-- SVG Donut Chart rendered dynamically -->
+              </div>
+              <div class="dist-list" id="score-distribution-list">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                  <polyline points="2 17 12 22 22 17" />
+                  <polyline points="2 12 12 17 22 12" />
+                </svg>
+                Top Technical Skills in Demand
+              </h3>
+              <span class="badge-pill badge-good">Extracted from Active Vacancies</span>
+            </div>
+            <div class="skills-cloud" id="top-skills-cloud">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Candidates Screening Table -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+              </svg>
+              Recent Candidate Screenings
+            </h3>
+            <button class="btn btn-secondary btn-sm" id="btn-view-all-candidates">View Full Candidate Pool →</button>
+          </div>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Candidate</th>
+                  <th>Key Skills</th>
+                  <th>Experience</th>
+                  <th>Education</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="dash-recent-candidates-tbody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 2: JOB OPENINGS -->
+      <section class="page-view" id="view-jobs">
+        <div class="match-controls-bar">
+          <div>
+            <h3>Job Vacancies & Requirements</h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">
+              Manage active positions, required core skill sets, and automated matching benchmarks.
+            </p>
+          </div>
+          <button class="btn btn-primary" id="btn-open-create-job-modal">
+            <svg viewBox="0 0 24 24">
+              <line x1="12" y1="5" x2="12" y2="19" />
+              <line x1="5" y1="12" x2="19" y2="12" />
+            </svg>
+            Create New Vacancy
+          </button>
+        </div>
+
+        <div class="jobs-grid" id="jobs-cards-grid">
+          <!-- Dynamically populated -->
+        </div>
+      </section>
+
+      <!-- VIEW 3: UPLOAD RESUMES -->
+      <section class="page-view" id="view-upload">
+        <!-- Sample Resumes Bar -->
+        <div class="sample-bar">
+          <strong>⚡ Quick One-Click Demo CVs:</strong>
+          <button class="btn btn-secondary btn-sm" onclick="uploadSampleFile('Rahul_Sharma_Resume.pdf')">Rahul Sharma
+            (Python • PDF)</button>
+          <button class="btn btn-secondary btn-sm" onclick="uploadSampleFile('Priya_Patel_Resume.docx')">Priya Patel
+            (AI/ML • DOCX)</button>
+          <button class="btn btn-secondary btn-sm" onclick="uploadSampleFile('Amit_Verma_Resume.docx')">Amit Verma (MERN
+            • DOCX)</button>
+          <button class="btn btn-secondary btn-sm" onclick="uploadSampleFile('Neha_Singh_Resume.pdf')">Neha Singh
+            (DevOps • PDF)</button>
+          <button class="btn btn-secondary btn-sm" onclick="uploadSampleFile('Vikram_Rao_Resume.txt')">Vikram Rao
+            (Fresher • TXT)</button>
+        </div>
+
+        <!-- Drag & Drop Hero Zone -->
+        <div class="upload-hero" id="resume-dropzone">
+          <div class="upload-icon-circle">
+            <svg viewBox="0 0 24 24">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="17 8 12 3 7 8" />
+              <line x1="12" y1="3" x2="12" y2="15" />
+            </svg>
+          </div>
+          <h3>Drag & Drop CV Documents Here</h3>
+          <p>Accepts PDF (.pdf), Microsoft Word (.docx), and Plain Text (.txt) up to 15MB each.</p>
+          <input type="file" id="resume-file-input" multiple accept=".pdf,.docx,.txt" style="display: none;">
+          <div style="margin-top: 18px;">
+            <button class="btn btn-primary" id="btn-browse-files">Browse Files from Computer</button>
+          </div>
+        </div>
+
+        <!-- Real-Time Extraction Results Queue -->
+        <div class="card" id="upload-results-container" style="display: none;">
+          <div class="card-header">
+            <h3 class="card-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+              Extracted Resumes & Parsing Status
+            </h3>
+            <button class="btn btn-secondary btn-sm" onclick="appState.navigateTo('matching')">View Candidate Rankings
+              →</button>
+          </div>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Filename</th>
+                  <th>Extracted Name</th>
+                  <th>Skills Identified</th>
+                  <th>Experience</th>
+                  <th>Education</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="upload-results-tbody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 4: CANDIDATE POOL -->
+      <section class="page-view" id="view-candidates">
+        <div class="match-controls-bar">
+          <div style="flex-grow: 1; max-width: 320px;">
+            <input type="text" class="form-control" id="cand-search-input"
+              placeholder="🔍 Search candidate name, skills, email...">
+          </div>
+          <div class="slider-group">
+            <span>Min Exp: <strong id="filter-exp-val">0</strong> yrs</span>
+            <input type="range" id="cand-min-exp" min="0" max="10" step="0.5" value="0">
+          </div>
+          <div class="slider-group">
+            <select class="form-control" id="cand-edu-filter" style="width: 170px;">
+              <option value="">All Education</option>
+              <option value="MCA">MCA</option>
+              <option value="M.Tech">M.Tech</option>
+              <option value="B.Tech">B.Tech / B.E.</option>
+              <option value="BCA">BCA</option>
+              <option value="B.Sc">B.Sc</option>
+            </select>
+          </div>
+          <button class="btn btn-primary btn-sm" id="btn-compare-selected">
+            ⚖️ Compare Selected (<span id="compare-count">0</span>)
+          </button>
+        </div>
+
+        <div class="card">
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th style="width: 40px;"><input type="checkbox" id="check-all-candidates"></th>
+                  <th>Candidate</th>
+                  <th>Contact Info</th>
+                  <th>Extracted Skills</th>
+                  <th>Experience</th>
+                  <th>Education</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="candidates-table-tbody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 5: CANDIDATE MATCHER (AI RANKING) -->
+      <section class="page-view" id="view-matching">
+        <div class="match-controls-bar">
+          <div>
+            <span
+              style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">EVALUATING
+              AGAINST VACANCY:</span>
+            <h3 id="matching-target-title" style="margin-top: 2px;">Senior Python / FastAPI Developer</h3>
+          </div>
+          <div class="slider-group">
+            <span>Min Score Filter: <strong id="match-threshold-val">0%</strong></span>
+            <input type="range" id="match-threshold-slider" min="0" max="90" step="5" value="0">
+          </div>
+          <div>
+            <button class="btn btn-secondary btn-sm" id="btn-export-csv">
+              <svg viewBox="0 0 24 24">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              Download Report (CSV)
+            </button>
+          </div>
+        </div>
+
+        <!-- Ranked Candidate Match Cards -->
+        <div id="matching-cards-container">
+          <!-- Dynamically populated -->
+        </div>
+      </section>
+
+      <!-- VIEW 6: SIDE-BY-SIDE COMPARE -->
+      <section class="page-view" id="view-compare">
+        <div class="match-controls-bar">
+          <div>
+            <h3>Side-by-Side Candidate Evaluation</h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;" id="compare-job-subtitle">
+              Comparing selected candidates against the current job vacancy.
+            </p>
+          </div>
+          <button class="btn btn-secondary btn-sm" onclick="appState.navigateTo('candidates')">Select Different
+            Candidates</button>
+        </div>
+
+        <div id="compare-content-container">
+          <!-- Dynamically populated -->
+        </div>
+      </section>
+
+      <!-- VIEW 7: SYSTEM ARCHITECTURE -->
+      <section class="page-view" id="view-system">
+        <div class="card" style="margin-bottom: 24px;">
+          <div class="card-header">
+            <h3 class="card-title">🤖 6-Pillar System Architecture</h3>
+            <span class="badge-pill badge-strong">MCA Real-World Implementation</span>
+          </div>
+          <div
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 10px;">
+            <div
+              style="background: rgba(255,255,255,0.025); padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+              <h4 style="color: #818cf8; margin-bottom: 6px;">🌐 1. Web Development</h4>
+              <p style="font-size: 0.82rem; color: var(--text-secondary);">HTML5, Responsive Glassmorphic CSS3, Vanilla
+                JS. Real-time updates, client-side filtering, interactive modals.</p>
+            </div>
+            <div
+              style="background: rgba(255,255,255,0.025); padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+              <h4 style="color: #38bdf8; margin-bottom: 6px;">⚙️ 2. Backend</h4>
+              <p style="font-size: 0.82rem; color: var(--text-secondary);">FastAPI async REST architecture. Modular
+                routers, Pydantic type safety, automated Swagger & ReDoc documentation.</p>
+            </div>
+            <div
+              style="background: rgba(255,255,255,0.025); padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+              <h4 style="color: #f43f5e; margin-bottom: 6px;">📄 3. Document Processing</h4>
+              <p style="font-size: 0.82rem; color: var(--text-secondary);">pypdf & python-docx text extraction.
+                Multi-format sanitation, paragraph & table extraction, character normalizer.</p>
+            </div>
+            <div
+              style="background: rgba(255,255,255,0.025); padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+              <h4 style="color: #a855f7; margin-bottom: 6px;">🧠 4. Natural Language Processing</h4>
+              <p style="font-size: 0.82rem; color: var(--text-secondary);">400+ tech skills ontology, regex entity
+                extraction for email/phone/tenure, degree hierarchical classification.</p>
+            </div>
+            <div
+              style="background: rgba(255,255,255,0.025); padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+              <h4 style="color: #10b981; margin-bottom: 6px;">🤖 5. Machine Learning</h4>
+              <p style="font-size: 0.82rem; color: var(--text-secondary);">TF-IDF vectorizer + Cosine Similarity
+                semantic matching. Multi-factor weighted composite scoring with explainable verdicts.</p>
+            </div>
+            <div
+              style="background: rgba(255,255,255,0.025); padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+              <h4 style="color: #f59e0b; margin-bottom: 6px;">🗄️ 6. Database (MongoDB)</h4>
+              <p style="font-size: 0.82rem; color: var(--text-secondary);">PyMongo driver with dual-mode architecture:
+                connects to live MongoDB Atlas/local, with automatic fallback to embedded document engine.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">⚙️ System Diagnostics & Weights</h3>
+          </div>
+          <div id="system-diagnostics-content"
+            style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-secondary);">
+            Loading diagnostics...
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- MODAL: CREATE JOB OPENING -->
+  <div class="modal-overlay" id="modal-create-job">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Create New Job Vacancy</h3>
+        <button class="modal-close" onclick="closeModal('modal-create-job')">&times;</button>
+      </div>
+      <form id="form-create-job">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label" for="job-title-input">Job Title *</label>
+            <input type="text" class="form-control" id="job-title-input" required
+              placeholder="e.g. Senior Backend Engineer">
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+            <div class="form-group">
+              <label class="form-label" for="job-dept-input">Department</label>
+              <input type="text" class="form-control" id="job-dept-input" value="Engineering"
+                placeholder="e.g. Cloud Infrastructure">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="job-exp-input">Min Experience (Years)</label>
+              <input type="number" class="form-control" id="job-exp-input" min="0" max="20" step="0.5" value="2.0">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="job-req-skills-input">Required Core Skills * (comma-separated)</label>
+            <input type="text" class="form-control" id="job-req-skills-input" required
+              placeholder="Python, FastAPI, SQL, Docker, REST API">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="job-pref-skills-input">Preferred Skills (comma-separated)</label>
+            <input type="text" class="form-control" id="job-pref-skills-input"
+              placeholder="AWS, Redis, Microservices, Kubernetes">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="job-edu-input">Minimum Education Level</label>
+            <select class="form-control" id="job-edu-input">
+              <option value="Bachelor">Bachelor (B.Tech / BCA / B.Sc)</option>
+              <option value="Master">Master (MCA / M.Tech / M.Sc / MBA)</option>
+              <option value="Ph.D">Ph.D / Doctorate</option>
+              <option value="Diploma">Diploma / Polytechnic</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="job-desc-input">Job Description *</label>
+            <textarea class="form-control" id="job-desc-input" rows="4" required
+              placeholder="Describe role responsibilities, key deliverables, and team expectations..."></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="closeModal('modal-create-job')">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="btn-submit-create-job">Publish Vacancy</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: CANDIDATE PROFILE & AI INTERVIEW COPILOT -->
+  <div class="modal-overlay" id="modal-candidate-profile">
+    <div class="modal-content" style="max-width: 800px;">
+      <div class="modal-header">
+        <h3 id="modal-profile-name">Candidate Profile</h3>
+        <button class="modal-close" onclick="closeModal('modal-candidate-profile')">&times;</button>
+      </div>
+      <div class="modal-tabs">
+        <button class="modal-tab-btn active" onclick="switchProfileModalTab('tab-overview')">Profile &
+          Qualifications</button>
+        <button class="modal-tab-btn" onclick="switchProfileModalTab('tab-questions')">🤖 AI Interview
+          Questions</button>
+        <button class="modal-tab-btn" onclick="switchProfileModalTab('tab-raw')">Raw CV Text</button>
+      </div>
+      <div class="modal-body" id="modal-profile-body">
+        <!-- Dynamically populated -->
+      </div>
+      <div class="modal-footer" id="modal-profile-footer">
+        <button type="button" class="btn btn-secondary" onclick="closeModal('modal-candidate-profile')">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Application Logic Scripts -->
+  <script src="/static/js/app.js"></script>
+</body>
+
+</html>

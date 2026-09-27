@@ -1,0 +1,647 @@
+{
+  "users": [
+    {
+      "id": "demo-hr-01",
+      "username": "hr.admin",
+      "password": "admin123",
+      "name": "Sarah Jenkins",
+      "role": "Lead Technical Recruiter",
+      "department": "Human Resources",
+      "_id": "demo-hr-01"
+    },
+    {
+      "id": "lipika-admin-01",
+      "username": "lipika",
+      "password": "admin123",
+      "name": "Lipika Murmu",
+      "role": "Lead Technical Recruiter",
+      "department": "Human Resources",
+      "email": "lipika.murmu@lipikaai.com",
+      "created_at": "2026-09-20 09:00",
+      "_id": "lipika-admin-01"
+    },
+    {
+      "id": "system-admin-01",
+      "username": "admin",
+      "password": "admin123",
+      "name": "Lipika Murmu",
+      "role": "System Administrator",
+      "department": "Human Resources",
+      "email": "admin@lipikaai.com",
+      "created_at": "2026-09-20 09:00",
+      "_id": "system-admin-01"
+    },
+    {
+      "id": "e5a6d9fd-7798-488f-a8f6-eb94999a6b20",
+      "username": "rktudu",
+      "password": "Rktudu123",
+      "name": "Rajani Kanta Tudu",
+      "role": "Technical Recruiter",
+      "department": "Human Resources",
+      "email": "tudurajanikanta@gmail.com",
+      "created_at": "2026-09-27 08:32",
+      "_id": "e5a6d9fd-7798-488f-a8f6-eb94999a6b20"
+    }
+  ],
+  "jobs": [
+    {
+      "id": "job-python-01",
+      "title": "Senior Python / FastAPI Developer",
+      "department": "Backend Engineering",
+      "required_skills": [
+        "Python",
+        "FastAPI",
+        "Django",
+        "REST API",
+        "SQL",
+        "Docker"
+      ],
+      "preferred_skills": [
+        "AWS",
+        "Redis",
+        "PostgreSQL",
+        "Microservices"
+      ],
+      "min_experience": 2.5,
+      "education_level": "Bachelor",
+      "description": "Looking for an experienced Python developer to build robust async REST APIs using FastAPI and Django. Responsible for designing clean database schemas in SQL and PostgreSQL, containerizing apps with Docker, and architecting microservices with Redis caching and AWS deployment.",
+      "status": "Active",
+      "created_at": "2026-09-20 10:00",
+      "_id": "job-python-01"
+    },
+    {
+      "id": "job-ml-02",
+      "title": "AI & Machine Learning Engineer",
+      "department": "AI & Data Science",
+      "required_skills": [
+        "Python",
+        "Machine Learning",
+        "Natural Language Processing (NLP)",
+        "PyTorch",
+        "Scikit-Learn",
+        "Pandas"
+      ],
+      "preferred_skills": [
+        "HuggingFace",
+        "Deep Learning",
+        "Docker",
+        "Large Language Models (LLMs)"
+      ],
+      "min_experience": 2.0,
+      "education_level": "Master",
+      "description": "Seeking an AI/ML Engineer to train semantic embeddings, develop document parsing and resume screening NLP models, and deploy high-throughput inference endpoints using PyTorch, Scikit-Learn, and HuggingFace transformers.",
+      "status": "Active",
+      "created_at": "2026-09-22 11:30",
+      "_id": "job-ml-02"
+    },
+    {
+      "id": "job-fullstack-03",
+      "title": "Full Stack MERN Developer",
+      "department": "Product Engineering",
+      "required_skills": [
+        "React",
+        "Node.js",
+        "Express.js",
+        "JavaScript",
+        "MongoDB",
+        "HTML",
+        "CSS"
+      ],
+      "preferred_skills": [
+        "TypeScript",
+        "Next.js",
+        "Tailwind CSS",
+        "REST API"
+      ],
+      "min_experience": 3.0,
+      "education_level": "Bachelor",
+      "description": "We are seeking a talented Full Stack Web Developer proficient in React, Node.js, Express.js, and MongoDB to create dynamic, high-performance dashboards, real-time collaboration tools, and responsive interfaces.",
+      "status": "Active",
+      "created_at": "2026-09-24 14:15",
+      "_id": "job-fullstack-03"
+    },
+    {
+      "id": "job-devops-04",
+      "title": "Cloud & DevOps Specialist",
+      "department": "Infrastructure",
+      "required_skills": [
+        "Docker",
+        "Kubernetes",
+        "AWS",
+        "CI/CD",
+        "Linux",
+        "Terraform"
+      ],
+      "preferred_skills": [
+        "Python",
+        "Git",
+        "Nginx",
+        "Jenkins"
+      ],
+      "min_experience": 3.0,
+      "education_level": "Bachelor",
+      "description": "Responsible for managing cloud infrastructure on AWS, building automated CI/CD pipelines, orchestrating containerized microservices on Kubernetes, and provisioning infrastructure as code using Terraform.",
+      "status": "Active",
+      "created_at": "2026-09-25 09:00",
+      "_id": "job-devops-04"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "cand-01",
+      "name": "Rahul Sharma",
+      "email": "rahul.sharma@example.com",
+      "phone": "+91 9876543210",
+      "skills": [
+        "Python",
+        "FastAPI",
+        "Django",
+        "REST API",
+        "SQL",
+        "PostgreSQL",
+        "Docker",
+        "Redis",
+        "Git",
+        "AWS"
+      ],
+      "experience_years": 3.4,
+      "education": "MCA",
+      "summary": "Rahul Sharma is a candidate with MCA and 3.4 years of experience. Key proficiencies include: Python, FastAPI, Django, REST API, SQL.",
+      "raw_text": "Rahul Sharma\nSenior Python Developer\nEmail: rahul.sharma@example.com | Phone: +91 9876543210\nTotal Experience: 3.4 years | Education: MCA in Computer Applications\n\nPROFESSIONAL SUMMARY:\nBackend Developer with 3.4 years of experience developing high-performance REST APIs with Python, FastAPI, and Django. Skilled in PostgreSQL, SQL, Docker containerization, Redis caching, and AWS deployment.\n\nTECHNICAL SKILLS:\nPython, FastAPI, Django, REST API, SQL, PostgreSQL, Docker, Redis, Git, AWS, Microservices\n\nWORK EXPERIENCE:\n\u2022 Lead Backend Developer at TechNova Solutions (2022 - Present)\n- Engineered scalable async REST APIs with FastAPI and Django serving 200k daily requests.\n- Designed database schemas in PostgreSQL and SQL with optimized query execution.\n- Deployed microservices using Docker containers on AWS EC2 and configured Redis caching layer.\n\n\u2022 Software Engineer at CloudCraft Systems (2020 - 2022)\n- Built internal tooling and RESTful APIs using Python, SQL, and Flask.\n\nEDUCATION:\nMaster of Computer Applications (MCA) - Pune University (2018 - 2020)\n",
+      "resume_filename": "Rahul_Sharma_Resume.pdf",
+      "resume_path": "C:\\New folder\\data\\sample_resumes\\Rahul_Sharma_Resume.pdf",
+      "uploaded_at": "2026-09-25 15:30",
+      "status": "Shortlisted",
+      "_id": "cand-01"
+    },
+    {
+      "id": "cand-02",
+      "name": "Priya Patel",
+      "email": "priya.patel@example.com",
+      "phone": "+91 9876501234",
+      "skills": [
+        "Python",
+        "Machine Learning",
+        "Natural Language Processing (NLP)",
+        "PyTorch",
+        "Scikit-Learn",
+        "Pandas",
+        "NumPy",
+        "Deep Learning",
+        "HuggingFace",
+        "Git"
+      ],
+      "experience_years": 2.8,
+      "education": "M.Tech",
+      "summary": "Priya Patel is an AI Engineer with M.Tech and 2.8 years of experience in NLP and ML models.",
+      "raw_text": "Priya Patel\nAI & Machine Learning Engineer\nEmail: priya.patel@example.com | Phone: +91 9876501234\nExperience: 2.8 years | Education: M.Tech in Data Science\n\nSUMMARY:\nMachine Learning Engineer with 2.8 years of experience building Natural Language Processing models, document classification pipelines, and transformer architectures.\n\nTECHNICAL SKILLS:\nPython, Machine Learning, Natural Language Processing (NLP), PyTorch, Scikit-Learn, Pandas, NumPy, Deep Learning, HuggingFace, Git\n\nWORK EXPERIENCE:\n\u2022 ML Research Engineer at AI Nexus Labs (2023 - Present)\n- Fine-tuned transformer models using HuggingFace and PyTorch for semantic text similarity.\n- Built automated resume entity extraction pipelines with NLP and Scikit-Learn classifiers.\n\n\u2022 Junior Data Scientist at DataPulse (2021 - 2023)\n- Processed large datasets using Pandas and NumPy, implemented ML algorithms for predictive modeling.\n\nEDUCATION:\nM.Tech in Data Science and Artificial Intelligence (2019 - 2021)\n",
+      "resume_filename": "Priya_Patel_Resume.docx",
+      "resume_path": "C:\\New folder\\data\\sample_resumes\\Priya_Patel_Resume.docx",
+      "uploaded_at": "2026-09-25 16:10",
+      "status": "Shortlisted",
+      "_id": "cand-02"
+    },
+    {
+      "id": "cand-03",
+      "name": "Amit Verma",
+      "email": "amit.verma@example.com",
+      "phone": "+91 9988776655",
+      "skills": [
+        "React",
+        "JavaScript",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "HTML",
+        "CSS",
+        "Tailwind CSS",
+        "Git",
+        "REST API"
+      ],
+      "experience_years": 4.1,
+      "education": "B.Tech / B.E.",
+      "summary": "Amit Verma is a Full Stack Developer with 4.1 years of experience in MERN stack.",
+      "raw_text": "Amit Verma\nFull Stack MERN Developer\nEmail: amit.verma@example.com | Phone: +91 9988776655\nExperience: 4.1 years of experience | Education: B.Tech in Computer Science\n\nSUMMARY:\nExperienced Full Stack Engineer with 4.1 years building dynamic web applications using React, Node.js, Express.js, and MongoDB.\n\nTECHNICAL SKILLS:\nReact, Node.js, Express.js, JavaScript, MongoDB, HTML, CSS, Tailwind CSS, Git, REST API\n\nWORK EXPERIENCE:\n\u2022 Senior Full Stack Developer at WebSphere Innovations (2022 - Present)\n- Architected responsive dashboards in React and Tailwind CSS.\n- Developed backend microservices using Node.js, Express.js, and MongoDB.\n\n\u2022 Full Stack Developer at DevSolutions (2019 - 2022)\n- Implemented state management, user authentication, and interactive client components.\n\nEDUCATION:\nBachelor of Technology (B.Tech) in Computer Science (2015 - 2019)\n",
+      "resume_filename": "Amit_Verma_Resume.docx",
+      "resume_path": "C:\\New folder\\data\\sample_resumes\\Amit_Verma_Resume.docx",
+      "uploaded_at": "2026-09-26 10:20",
+      "status": "Shortlisted",
+      "_id": "cand-03"
+    },
+    {
+      "id": "cand-04",
+      "name": "Neha Singh",
+      "email": "neha.singh@example.com",
+      "phone": "+91 9711223344",
+      "skills": [
+        "Docker",
+        "Kubernetes",
+        "AWS",
+        "CI/CD",
+        "Linux",
+        "Terraform",
+        "Git",
+        "Jenkins",
+        "Python"
+      ],
+      "experience_years": 3.5,
+      "education": "B.Tech / B.E.",
+      "summary": "Neha Singh is a DevOps Specialist with B.Tech and 3.5 years of cloud experience.",
+      "raw_text": "Neha Singh\nCloud & DevOps Engineer\nEmail: neha.singh@example.com | Phone: +91 9711223344\nExperience: 3.5 years | Education: B.Tech in Information Technology\n\nSUMMARY:\nDevOps Engineer with 3.5 years hands-on experience provisioning AWS cloud resources, building CI/CD pipelines, and managing Docker and Kubernetes clusters.\n\nTECHNICAL SKILLS:\nDocker, Kubernetes, AWS, CI/CD, Linux, Terraform, Git, Jenkins, Python\n\nWORK EXPERIENCE:\n\u2022 DevOps Engineer at CloudMatrix (2022 - Present)\n- Built automated Git-driven CI/CD pipelines with Jenkins and GitHub Actions.\n- Managed Kubernetes production clusters on AWS EKS and automated infra with Terraform.\n\n\u2022 Systems Engineer at InfraTech (2020 - 2022)\n- Maintained Linux server fleets, containerized legacy services with Docker.\n\nEDUCATION:\nB.Tech in Information Technology (2016 - 2020)\n",
+      "resume_filename": "Neha_Singh_Resume.pdf",
+      "resume_path": "C:\\New folder\\data\\sample_resumes\\Neha_Singh_Resume.pdf",
+      "uploaded_at": "2026-09-26 11:45",
+      "status": "Active",
+      "_id": "cand-04"
+    },
+    {
+      "id": "cand-05",
+      "name": "Vikram Rao",
+      "email": "vikram.rao@example.com",
+      "phone": "+91 9655443322",
+      "skills": [
+        "Python",
+        "Django",
+        "SQL",
+        "HTML",
+        "CSS",
+        "Git"
+      ],
+      "experience_years": 1.2,
+      "education": "BCA",
+      "summary": "Vikram Rao is a Junior Python Developer with BCA and 1.2 years of experience.",
+      "raw_text": "Vikram Rao\nJunior Python Developer\nEmail: vikram.rao@example.com | Phone: +91 9655443322\nExperience: 1.2 years | Education: BCA\n\nSUMMARY:\nMotivated Junior Python Developer with 1.2 years experience developing web features with Django and SQL.\n\nTECHNICAL SKILLS:\nPython, Django, SQL, HTML, CSS, Git\n\nWORK EXPERIENCE:\n\u2022 Junior Web Developer at ByteLogic (2023 - Present)\n- Assisted in building Django views, models, and SQL queries.\n\nEDUCATION:\nBachelor of Computer Applications (BCA) - 2023\n",
+      "resume_filename": "Vikram_Rao_Resume.txt",
+      "resume_path": "C:\\New folder\\data\\sample_resumes\\Vikram_Rao_Resume.txt",
+      "uploaded_at": "2026-09-26 14:00",
+      "status": "Active",
+      "_id": "cand-05"
+    },
+    {
+      "id": "cand-06",
+      "name": "Ananya Sen",
+      "email": "ananya.sen@example.com",
+      "phone": "+91 9544332211",
+      "skills": [
+        "React",
+        "JavaScript",
+        "TypeScript",
+        "Next.js",
+        "HTML",
+        "CSS",
+        "Tailwind CSS",
+        "Vue.js",
+        "Git"
+      ],
+      "experience_years": 2.5,
+      "education": "B.Sc / B.S.",
+      "summary": "Ananya Sen is a Frontend Engineer with B.Sc and 2.5 years of experience in React and TypeScript.",
+      "raw_text": "Ananya Sen\nFrontend Specialist\nEmail: ananya.sen@example.com | Phone: +91 9544332211\nExperience: 2.5 years | Education: B.Sc in Computer Science\n\nSUMMARY:\nFrontend Engineer with 2.5 years experience crafting responsive modern user interfaces with React, Next.js, and TypeScript.\n\nTECHNICAL SKILLS:\nReact, JavaScript, TypeScript, Next.js, HTML, CSS, Tailwind CSS, Vue.js, Git\n\nWORK EXPERIENCE:\n\u2022 Frontend Developer at PixelCraft Studios (2022 - Present)\n- Built interactive web portals and reusable component libraries using React and TypeScript.\n\nEDUCATION:\nBachelor of Science (B.Sc) in Computer Science (2019 - 2022)\n",
+      "resume_filename": "Ananya_Sen_Resume.pdf",
+      "resume_path": "C:\\New folder\\data\\sample_resumes\\Ananya_Sen_Resume.pdf",
+      "uploaded_at": "2026-09-26 15:30",
+      "status": "Active",
+      "_id": "cand-06"
+    },
+    {
+      "id": "6ca137e6-4447-4418-8806-d1fc78054dcd",
+      "name": "Rahul Sharma",
+      "email": "rahul.sharma@example.com",
+      "phone": "9876543210",
+      "skills": [
+        "AWS",
+        "Django",
+        "Docker",
+        "FastAPI",
+        "Microservices",
+        "PostgreSQL",
+        "Python",
+        "REST API",
+        "Redis",
+        "SQL"
+      ],
+      "experience_years": 3.4,
+      "education": "MCA",
+      "education_level": 4,
+      "summary": "Rahul Sharma is a candidate with MCA and 3.4 years of experience. Key proficiencies include: AWS, Django, Docker, FastAPI, Microservices.",
+      "raw_text": "Rahul Sharma\nRole: Senior Python Developer - Experience: 3.4 years\nEmail: rahul.sharma@example.com - Phone: 9876543210\nEducation: MCA\n---\nSKILLS:\nPython, FastAPI, Django, REST API, SQL, PostgreSQL, Docker, Redis\nAWS\n---\nEXPERIENCE:\nEngineered scalable async REST APIs with FastAPI and Django. Deployed microservices using Docker on AWS EC2.\nEDUCATION:\nMCA in Computer Science",
+      "resume_filename": "Rahul_Sharma_Resume.pdf",
+      "resume_path": "C:\\New folder\\data\\sample_resumes\\Rahul_Sharma_Resume.pdf",
+      "uploaded_at": "2026-09-27 07:07",
+      "status": "Active",
+      "_id": "6ca137e6-4447-4418-8806-d1fc78054dcd"
+    },
+    {
+      "id": "24806941-f498-415c-96de-2cf6717da6c8",
+      "name": "Priya Patel",
+      "email": "priya.patel@example.com",
+      "phone": "+91 9876543210",
+      "skills": [
+        "HuggingFace",
+        "Machine Learning",
+        "Natural Language Processing (NLP)",
+        "Pandas",
+        "PyTorch",
+        "Python",
+        "Scikit-Learn"
+      ],
+      "experience_years": 2.8,
+      "education": "M.Tech",
+      "education_level": 4,
+      "summary": "Priya Patel is a candidate with M.Tech and 2.8 years of experience. Key proficiencies include: HuggingFace, Machine Learning, Natural Language Processing (NLP), Pandas, PyTorch.",
+      "raw_text": "Priya Patel\nRole: AI & Machine Learning Engineer | Education: M.Tech | Total Experience: 2.8 years\nEmail: priya.patel@example.com | Phone: +91 9876543210\nProfessional Summary\nDynamic and results-driven AI & Machine Learning Engineer with 2.8 years of professional experience. Proficient in designing scalable architectures, optimizing backend logic, and solving complex technical challenges.\nTechnical Proficiencies\nPython, Machine Learning, NLP, PyTorch, Scikit-Learn, Pandas, HuggingFace\nWork History\nFine-tuned transformer models for semantic text similarity. Built resume entity extraction pipelines with NLP.\nEducation\nM.Tech in Computer Science - Graduated with Distinction.",
+      "resume_filename": "Priya_Patel_Resume.docx",
+      "resume_path": "C:\\New folder\\data\\sample_resumes\\Priya_Patel_Resume.docx",
+      "uploaded_at": "2026-09-27 07:07",
+      "status": "Active",
+      "_id": "24806941-f498-415c-96de-2cf6717da6c8"
+    },
+    {
+      "id": "c42bd87d-e73c-4a74-8e23-c4dd3bb49b8d",
+      "name": "Rahul Sharma",
+      "email": "rahul.sharma@example.com",
+      "phone": "9876543210",
+      "skills": [
+        "AWS",
+        "Django",
+        "Docker",
+        "FastAPI",
+        "Microservices",
+        "PostgreSQL",
+        "Python",
+        "REST API",
+        "Redis",
+        "SQL"
+      ],
+      "experience_years": 3.4,
+      "education": "MCA",
+      "education_level": 4,
+      "summary": "Rahul Sharma is a candidate with MCA and 3.4 years of experience. Key proficiencies include: AWS, Django, Docker, FastAPI, Microservices.",
+      "raw_text": "Rahul Sharma\nRole: Senior Python Developer - Experience: 3.4 years\nEmail: rahul.sharma@example.com - Phone: 9876543210\nEducation: MCA\n---\nSKILLS:\nPython, FastAPI, Django, REST API, SQL, PostgreSQL, Docker, Redis\nAWS\n---\nEXPERIENCE:\nEngineered scalable async REST APIs with FastAPI and Django. Deployed microservices using Docker on AWS EC2.\nEDUCATION:\nMCA in Computer Science",
+      "resume_filename": "Rahul_Sharma_Resume.pdf",
+      "resume_path": "C:\\New folder\\data\\sample_resumes\\Rahul_Sharma_Resume.pdf",
+      "uploaded_at": "2026-09-27 07:28",
+      "status": "Active",
+      "_id": "c42bd87d-e73c-4a74-8e23-c4dd3bb49b8d"
+    },
+    {
+      "id": "1ea98650-2e97-4097-b24d-b5540d8fc528",
+      "name": "Lipika Murmu",
+      "email": "lipikamurmu23@gmail.com",
+      "phone": "7501092161",
+      "skills": [
+        "C++",
+        "CSS",
+        "Git",
+        "HTML",
+        "Java",
+        "JavaScript",
+        "Linux",
+        "MySQL",
+        "Object-Oriented Programming",
+        "Python",
+        "SQLite"
+      ],
+      "experience_years": 5.0,
+      "education": "MCA",
+      "education_level": 4,
+      "summary": "Lipika Murmu is a candidate with MCA and 5.0 years of experience. Key proficiencies include: C++, CSS, Git, HTML, Java.",
+      "raw_text": "Lipika Murmu\nlipikamurmu23@gmail.com\n\n7501092161\n\nJhargram, West Bengal, India\n\n17.03.2002\n\nIndian\n\nFemale\n\nEducation\nHigher Secondary\nRani Benode Manjari Govt. Girls' School\n2021 | Jhargram, West Bengal, India\nSecondary\nRani Benode Manjari Govt. Girls' School\n2019 | Jhargram, West Bengal, India\nBCA\nRaja Narendralal Khan Women's College (Autonomous)\n2021 \u2013 2024 | Medinipur, West Bengal, India\nMCA\nMaulana Abul Kalam Azad University of Technology,\nWest Bengal\n2025 \u2013 2027 | Kalyani, West Bengal, India\nSkills\nProgramming Languages: C, C++, Java, Python Web\nTechnologies: HTML, CSS, JavaScript Database:\nMySQL, SQLite Tools & Platforms: Git, VS Code,\nLinux, Windows Concepts: Data Structures, OOP,\nOperating Systems, DBMS, Computer Networks\nLanguages\nEnglish, Bengali, Hindi\nProjects\nA software solution designed to automate the storage, retrieval, and analysis of blood donor and inventory\ndata.\nBlood Bank line",
+      "resume_filename": "Lipika-Murmu-FlowCV-Resume-20260218.pdf",
+      "resume_path": "C:\\New folder\\data\\uploads\\630b86632fd24fe39c2f11398f31c76e_Lipika-Murmu-FlowCV-Resume-20260218.pdf",
+      "uploaded_at": "2026-09-27 07:38",
+      "status": "Active",
+      "_id": "1ea98650-2e97-4097-b24d-b5540d8fc528"
+    },
+    {
+      "id": "d0da66e3-5127-4a29-83e4-37292d3b45f5",
+      "name": "Rahul Sharma",
+      "email": "rahul.sharma@example.com",
+      "phone": "9876543210",
+      "skills": [
+        "AWS",
+        "Django",
+        "Docker",
+        "FastAPI",
+        "Microservices",
+        "PostgreSQL",
+        "Python",
+        "REST API",
+        "Redis",
+        "SQL"
+      ],
+      "experience_years": 3.4,
+      "education": "MCA",
+      "education_level": 4,
+      "summary": "Rahul Sharma is a candidate with MCA and 3.4 years of experience. Key proficiencies include: AWS, Django, Docker, FastAPI, Microservices.",
+      "raw_text": "Rahul Sharma\nRole: Senior Python Developer - Experience: 3.4 years\nEmail: rahul.sharma@example.com - Phone: 9876543210\nEducation: MCA\n---\nSKILLS:\nPython, FastAPI, Django, REST API, SQL, PostgreSQL, Docker, Redis\nAWS\n---\nEXPERIENCE:\nEngineered scalable async REST APIs with FastAPI and Django. Deployed microservices using Docker on AWS EC2.\nEDUCATION:\nMCA in Computer Science",
+      "resume_filename": "Rahul_Sharma_Resume.pdf",
+      "resume_path": "C:\\New folder\\data\\sample_resumes\\Rahul_Sharma_Resume.pdf",
+      "uploaded_at": "2026-09-27 07:42",
+      "status": "Active",
+      "_id": "d0da66e3-5127-4a29-83e4-37292d3b45f5"
+    }
+  ],
+  "activity": [
+    {
+      "id": "12341c64-95b9-4530-a0c6-602c3c76f062",
+      "action": "Create Job",
+      "details": "Created job opening 'Test Automation Engineer'",
+      "category": "jobs",
+      "timestamp": "2026-09-27 07:07:50",
+      "_id": "12341c64-95b9-4530-a0c6-602c3c76f062"
+    },
+    {
+      "id": "d32cfc92-7690-4b3d-bf78-9d2f55adf1e6",
+      "action": "Delete Job",
+      "details": "Deleted job vacancy e1f4d9bf-9dad-4343-8613-e9b3a604a168",
+      "category": "jobs",
+      "timestamp": "2026-09-27 07:07:50",
+      "_id": "d32cfc92-7690-4b3d-bf78-9d2f55adf1e6"
+    },
+    {
+      "id": "95b21e00-3a1f-4441-bdfa-8272ca8c6d35",
+      "action": "Upload Sample",
+      "details": "Parsed sample CV 'Rahul_Sharma_Resume.pdf' for 'Rahul Sharma'",
+      "category": "resume",
+      "timestamp": "2026-09-27 07:07:50",
+      "_id": "95b21e00-3a1f-4441-bdfa-8272ca8c6d35"
+    },
+    {
+      "id": "a073680f-1fc3-4ff0-a75d-035bf95cb807",
+      "action": "Upload Sample",
+      "details": "Parsed sample CV 'Priya_Patel_Resume.docx' for 'Priya Patel'",
+      "category": "resume",
+      "timestamp": "2026-09-27 07:07:50",
+      "_id": "a073680f-1fc3-4ff0-a75d-035bf95cb807"
+    },
+    {
+      "id": "5e1ba153-e5bc-4fe3-a59a-822157271caa",
+      "action": "Candidate Status",
+      "details": "Updated status of Rahul Sharma to 'Rejected'",
+      "category": "candidate",
+      "timestamp": "2026-09-27 07:17:56",
+      "_id": "5e1ba153-e5bc-4fe3-a59a-822157271caa"
+    },
+    {
+      "id": "00c7b15e-e808-4e85-8f52-5bf26884eec1",
+      "action": "Candidate Status",
+      "details": "Updated status of Rahul Sharma to 'Shortlisted'",
+      "category": "candidate",
+      "timestamp": "2026-09-27 07:18:09",
+      "_id": "00c7b15e-e808-4e85-8f52-5bf26884eec1"
+    },
+    {
+      "id": "090fc23b-135d-42fb-9fa4-4a3534da4a63",
+      "action": "Candidate Status",
+      "details": "Updated status of Rahul Sharma to 'Rejected'",
+      "category": "candidate",
+      "timestamp": "2026-09-27 07:22:00",
+      "_id": "090fc23b-135d-42fb-9fa4-4a3534da4a63"
+    },
+    {
+      "id": "de34611b-3472-43cb-9444-9f43e8997242",
+      "action": "Candidate Status",
+      "details": "Updated status of Rahul Sharma to 'Active'",
+      "category": "candidate",
+      "timestamp": "2026-09-27 07:27:58",
+      "_id": "de34611b-3472-43cb-9444-9f43e8997242"
+    },
+    {
+      "id": "a3434f07-e1f1-452b-b950-03553a8201bc",
+      "action": "Candidate Status",
+      "details": "Updated status of Rahul Sharma to 'Rejected'",
+      "category": "candidate",
+      "timestamp": "2026-09-27 07:28:01",
+      "_id": "a3434f07-e1f1-452b-b950-03553a8201bc"
+    },
+    {
+      "id": "79195882-18f0-4372-a7f5-1be3a9732978",
+      "action": "Candidate Status",
+      "details": "Updated status of Rahul Sharma to 'Shortlisted'",
+      "category": "candidate",
+      "timestamp": "2026-09-27 07:28:09",
+      "_id": "79195882-18f0-4372-a7f5-1be3a9732978"
+    },
+    {
+      "id": "37855290-a4f2-459a-872c-923a6edcae1f",
+      "action": "Upload Sample",
+      "details": "Parsed sample CV 'Rahul_Sharma_Resume.pdf' for 'Rahul Sharma'",
+      "category": "resume",
+      "timestamp": "2026-09-27 07:28:36",
+      "_id": "37855290-a4f2-459a-872c-923a6edcae1f"
+    },
+    {
+      "id": "d09c566d-de4d-4989-8ab6-14416e5fa08d",
+      "action": "Upload Resume",
+      "details": "Parsed and indexed candidate 'Lipika Murmu' from 'Lipika-Murmu-FlowCV-Resume-20260218.pdf'",
+      "category": "resume",
+      "timestamp": "2026-09-27 07:38:11",
+      "_id": "d09c566d-de4d-4989-8ab6-14416e5fa08d"
+    },
+    {
+      "id": "895e927c-9a8c-4d4f-a4d6-5ec48a74191b",
+      "action": "Upload Sample",
+      "details": "Parsed sample CV 'Rahul_Sharma_Resume.pdf' for 'Rahul Sharma'",
+      "category": "resume",
+      "timestamp": "2026-09-27 07:42:54",
+      "_id": "895e927c-9a8c-4d4f-a4d6-5ec48a74191b"
+    },
+    {
+      "id": "edf0bf28-d03f-456e-a678-8f474604d476",
+      "action": "User Login",
+      "details": "HR Admin 'Lipika Murmu' logged in.",
+      "category": "auth",
+      "timestamp": "2026-09-27 08:28:51",
+      "_id": "edf0bf28-d03f-456e-a678-8f474604d476"
+    },
+    {
+      "id": "654604d0-4119-4351-8414-439330361253",
+      "action": "User Login",
+      "details": "HR Admin 'Lipika Murmu' logged in.",
+      "category": "auth",
+      "timestamp": "2026-09-27 08:31:15",
+      "_id": "654604d0-4119-4351-8414-439330361253"
+    },
+    {
+      "id": "25686433-bd1f-4587-8020-95de8672a679",
+      "action": "User Registration",
+      "details": "New HR Admin 'Rajani Kanta Tudu' registered.",
+      "category": "auth",
+      "timestamp": "2026-09-27 08:32:20",
+      "_id": "25686433-bd1f-4587-8020-95de8672a679"
+    },
+    {
+      "id": "adb64f04-82e6-4a73-bba2-4cdaccae02cc",
+      "action": "User Login",
+      "details": "HR Admin 'Rajani Kanta Tudu' logged in.",
+      "category": "auth",
+      "timestamp": "2026-09-27 08:32:32",
+      "_id": "adb64f04-82e6-4a73-bba2-4cdaccae02cc"
+    },
+    {
+      "id": "bd2a17b2-267f-4819-af8d-e8e314e08e1d",
+      "action": "Candidate Status",
+      "details": "Updated status of Amit Verma to 'Shortlisted'",
+      "category": "candidate",
+      "timestamp": "2026-09-27 08:32:47",
+      "_id": "bd2a17b2-267f-4819-af8d-e8e314e08e1d"
+    },
+    {
+      "id": "d06dd217-7b4b-4d68-8984-dad067199c7f",
+      "action": "User Login",
+      "details": "HR Admin 'Rajani Kanta Tudu' logged in.",
+      "category": "auth",
+      "timestamp": "2026-09-27 08:35:11",
+      "_id": "d06dd217-7b4b-4d68-8984-dad067199c7f"
+    },
+    {
+      "id": "d6fa7f8c-c386-4910-be5e-bd00339c3b46",
+      "action": "User Login",
+      "details": "HR Admin 'Rajani Kanta Tudu' logged in.",
+      "category": "auth",
+      "timestamp": "2026-09-27 08:50:52",
+      "_id": "d6fa7f8c-c386-4910-be5e-bd00339c3b46"
+    },
+    {
+      "id": "4c58af9c-df49-4662-828d-061c935b69ed",
+      "action": "User Login",
+      "details": "HR Admin 'Lipika Murmu' logged in.",
+      "category": "auth",
+      "timestamp": "2026-09-27 09:07:34",
+      "_id": "4c58af9c-df49-4662-828d-061c935b69ed"
+    },
+    {
+      "id": "db5e75dd-a603-488e-8505-f2d159dcacf9",
+      "action": "User Login",
+      "details": "HR Admin 'Rajani Kanta Tudu' logged in.",
+      "category": "auth",
+      "timestamp": "2026-09-27 09:09:50",
+      "_id": "db5e75dd-a603-488e-8505-f2d159dcacf9"
+    },
+    {
+      "id": "6716a706-23dc-48d9-ac72-ef3cddc231cb",
+      "action": "User Login",
+      "details": "HR Admin 'Rajani Kanta Tudu' logged in.",
+      "category": "auth",
+      "timestamp": "2026-09-27 09:09:59",
+      "_id": "6716a706-23dc-48d9-ac72-ef3cddc231cb"
+    },
+    {
+      "id": "3702e36e-8703-4cf0-8b27-46bd7ecb0697",
+      "action": "User Login",
+      "details": "HR Admin 'Rajani Kanta Tudu' logged in.",
+      "category": "auth",
+      "timestamp": "2026-09-27 09:10:04",
+      "_id": "3702e36e-8703-4cf0-8b27-46bd7ecb0697"
+    },
+    {
+      "id": "0ea6a82a-a89b-4711-8f82-4bed7f1289d7",
+      "action": "User Login",
+      "details": "HR Admin 'Rajani Kanta Tudu' logged in.",
+      "category": "auth",
+      "timestamp": "2026-09-27 09:10:09",
+      "_id": "0ea6a82a-a89b-4711-8f82-4bed7f1289d7"
+    }
+  ]
+}
