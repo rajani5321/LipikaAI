@@ -3,20 +3,17 @@
   "builds": [
     {
       "src": "api/index.py",
-      "use": "@vercel/python",
-      "config": {
-        "maxLambdaSize": "50mb"
-      }
+      "use": "@vercel/python"
     },
     {
       "src": "static/**",
       "use": "@vercel/static"
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/static/(.*)",
-      "dest": "/static/$1"
+      "source": "/(.*)",
+      "destination": "/api/index.py"
     }
-    
-
+  ]
+}

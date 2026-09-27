@@ -3,6 +3,14 @@ from pathlib import Path
 
 # Base Paths
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Load environment variables from .env file if available
+try:
+    from dotenv import load_dotenv
+    load_dotenv(BASE_DIR / ".env")
+except ImportError:
+    pass
+
 DATA_DIR = BASE_DIR / "data"
 UPLOAD_DIR = DATA_DIR / "uploads"
 SAMPLE_DIR = DATA_DIR / "sample_resumes"
